@@ -1,0 +1,110 @@
+﻿@model List<RealEstate_Dapper_UI.Dtos.ProductDtos.ResultProductDtos>
+@{
+    int count = 0;
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h3 class="mb-3" style="text-align:center">Ürün Tablosu</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+
+                                <th scope="col">Ürün İsmi</th>
+                                <th scope="col">Ürünün Kategorisi</th>
+                                <th scope="col">Ürünün Fiyatı</th>
+                                <th scope="col">Sil</th>
+                                <th scope="col">Güncelle</th>
+                                <th scope="col">Sitede Gör</th>
+                                <th scope="col">Günün Fırsatı</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var data in Model)
+                            {
+                                count++;
+                                <tr>
+
+                                    <td scope="row">@count</td>
+                                    <td scope="row">@data.productTitle</td>
+                                 <td scope="row">@data.categoryName</td>
+                                 <td scope="row">@data.productPrice </td>
+
+                                    <td scope="row"><a href="#" onclick="DeleteControl(@data.productId)" class="btn btn-outline-danger">Sil</a></td>
+                                 <td>   <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter2">
+                                        Güncelle
+                                        </button>
+                                    </td>
+                                    <td scope="row">
+                                        <a href="@Url.Action("PropertySingle","Property",new{slug=data.SlugUrl,id=data.productId})" class="btn btn-outline-info">
+                                            Sitede gör
+                                        </a>
+                                    </td>
+                                   
+                                        @if (data.DealOfTheDay == false)
+                                    {
+                                        <td scope="row">
+                                            <a href="/Product/DealOfTheDayStatusChangeToTrue/@data.productId" class="btn btn-outline-secondary">
+                                               Fırsat Yap
+                                            </a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td scope="row">
+                                            <a href="/Product/DealOfTheDayStatusChangeToFalse/@data.productId" class="btn btn-outline-danger">
+                                                Fırsattan Çıkar
+                                            </a>
+                                        </td>
+                                    }
+
+                                   
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <a href="/Product/CreateProduct" class="btn btn-outline-info">
+                    Yeni Ürün Girişi
+                </a>
+
+            
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function DeleteControl(productid) {
+        if (confirm("Silmek istiyor musunuz?")) {
+            fetch(`https://localhost:7093/api/Product/${productid}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Ürün başarıyla silindi');
+
+                        location.reload();
+                    } else {
+                        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Hata:', error);
+                    alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+                });
+        }
+    }
+    </script>

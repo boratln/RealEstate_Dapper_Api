@@ -1,0 +1,83 @@
+﻿@model List<RealEstate_Dapper_UI.Dtos.ProductDtos.ResultLast3ProductWithCategoryDto>
+
+
+<div class="w3l-news" id="news">
+    <section id="grids5-block" class="py-5">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h3 class="title-big text-center">Günün 3 Fırsatı</h3>
+            <div class="row mt-lg-5 mt-4 pt-3">
+                @foreach(var data in Model)
+                {
+
+                    var month = data.AdvertisementDate.Month;
+                    var year = data.AdvertisementDate.Year;
+                    var day = data.AdvertisementDate.Day;
+                    var monthname = String.Empty;
+                    switch (month)
+                    {
+                        case 1:
+                            monthname = "Ocak";
+                            break;
+                        case 2:
+                            monthname = "Şubat";
+                            break;
+                        case 3:
+                            monthname = "Mart";
+                            break;
+                        case 4:
+                            monthname = "Nisan";
+                            break;
+                        case 5:
+                            monthname = "Mayıs";
+                            break;
+                        case 6:
+                            monthname = "Haziran";
+                            break;
+                        case 7:
+                            monthname = "Temmuz";
+                            break;
+                        case 8:
+                            monthname = "Ağustos";
+                            break;
+                        case 9:
+                            monthname = "Eylül";
+                            break;
+                        case 10:
+                            monthname = "Ekim";
+                            break;
+                        case 11:
+                            monthname = "Kasım";
+                            break;
+                        case 12:
+                            monthname = "Aralık";
+                            break;
+                        default:
+                            monthname = "Invalid month";
+                            break;
+                    }
+                    <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
+                    <div class="grids5-info">
+                        <span class="posted-date">
+                            <a href="#blog-single">
+                                <span class="small">@year</span>
+                                <span class="big">@day</span>
+                                    <span class="small">@monthname</span>
+                            </a>
+                        </span>
+                        <a href="/Property/PropertySingle/@data.ProductId" class="d-block zoom">
+                            <img src="@data.ProductCoverImage" style="height:250px" alt=""
+                                 class="img-fluid news-image" />
+                        </a>
+                        <div class="blog-info">
+                            <a href="#category" class="category">@data.CategoryName</a>
+                            <h4><a href="#blog-single">@data.ProductTitle</a></h4>
+                            <p>@data.Description</p>
+                        </div>
+                    </div>
+                </div>
+                }
+         
+            </div>
+        </div>
+    </section>
+</div>

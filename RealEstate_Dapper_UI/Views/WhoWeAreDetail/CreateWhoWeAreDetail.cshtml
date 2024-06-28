@@ -1,0 +1,31 @@
+﻿@model RealEstate_Dapper_UI.Dtos.WhoWeAreDto.CreateWhoWeAreDetailDto
+@{
+    ViewData["Title"] = "CreateWhoWeAreDetail";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+
+                <h6 class="mb-4">Biz Kimiz Ekleme İşlemi</h6>
+                <form method="post">
+                    <label>Biz Kimiz Başlık</label>
+                    <input type="text" asp-for="Title" class="form-control" />
+                    <br />
+                    <label>Biz Kimiz Alt Başlık</label>
+                    <input type="text" asp-for="SubTitle" class="form-control" />
+                    <br />
+                    <label>Biz Kimiz  Açıklama 1</label>
+                    <textarea class="form-control" asp-for="Description1" />
+                    <br />
+                    <label>Biz Kimiz  Açıklama 2</label>
+                    <textarea class="form-control" asp-for="Description2" />
+                    <br />
+                    <button class="btn btn-primary" style="border-radius:8px"> Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿
+@model List<RealEstate_Dapper_UI.Dtos.AmenityDtos.ResultAmenityDto>
+
+
+<div class="single-bg-white">
+    <h3 class="post-content-title mb-4">Olanaklar</h3>
+    <ul class="details-list">
+        @foreach(var data in Model)
+        {
+            <li><strong>@data.Title </strong></li> 
+        }    
+    </ul>
+</div>

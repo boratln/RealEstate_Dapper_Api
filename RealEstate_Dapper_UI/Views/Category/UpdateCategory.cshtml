@@ -1,0 +1,30 @@
+﻿@using RealEstate_Dapper_UI.Dtos.CategoryDtos
+@model UpdateCategoryDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h3 class="mb-3" style="text-align:center">Kategori Güncelleme İşlemi</h3>
+
+                <form method="post">
+                    <input type="hidden" asp-for="CategoryId" />
+                    <label>Kategori Adı</label>
+                    <input type="text" class="form-control" value="@Model.CategoryName" asp-for="CategoryName" />
+                    <br />
+                    <button class="btn btn-primary">Kategori Güncelle</button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
