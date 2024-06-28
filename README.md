@@ -40,7 +40,6 @@ Kullanıcılar,emlakçıların sitede yayınlamış olduğu ilanları göz atıp
 
 ![Kullanıcıya Gelen Mesajlar](https://github.com/boratln/RealEstate_Dapper_Api/assets/94612727/58f977b6-f2e4-4abe-84cd-eefb9c799227)
 ![Ürün Tablosu](https://github.com/boratln/RealEstate_Dapper_Api/assets/94612727/3a253d39-1897-4457-82d4-27eb04081cdc)
-![Ürün Tablosu](https://github.com/boratln/RealEstate_Dapper_Api/assets/94612727/c5efc6e3-3c66-4039-bc85-f8bb46a3b611)
 ![İlana Göre Popüler Lokasyonlar](https://github.com/boratln/RealEstate_Dapper_Api/assets/94612727/3c4d133f-cf47-4abb-b7cb-59966f0d09f7)
 
 
